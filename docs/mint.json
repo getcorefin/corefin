@@ -1,5 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
+  "name": "Corefin",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg",
