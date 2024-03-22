@@ -3,6 +3,7 @@ package com.corefin.server.transform;
 import com.corefin.server.v1.model.LoanInfo;
 import com.corefin.server.v1.model.LoanInstallmentInfo;
 import com.corefin.server.v1.request.CreateLoanRequest;
+import com.corefin.server.v1.request.CreateMcaRequest;
 import org.corefin.calculator.model.Loan;
 import org.corefin.dto.LoanDto;
 import org.corefin.dto.LoanInstallmentDto;
@@ -32,6 +33,25 @@ public class LoanTransformer {
                 BigDecimal.ZERO,
                 BigDecimal.ZERO
                 );
+    }
+
+    public static Loan transformForNewInstallmentsForMca(CreateMcaRequest createMcaRequest) {
+        return new Loan(
+                "",
+                createMcaRequest.term(),
+                createMcaRequest.originatedAmount().multiply(createMcaRequest.factorRate()),
+                createMcaRequest.currency(),
+                BigDecimal.ZERO,
+                BigDecimal.ZERO,
+                createMcaRequest.startDate(),
+                createMcaRequest.timezone(),
+                "",
+                // Unused for new Installments
+                new ArrayList<>(),
+                new ArrayList<>(),
+                BigDecimal.ZERO,
+                BigDecimal.ZERO
+        );
     }
 
     public static LoanInfo transformToLoanInfo(LoanDto loanDto,

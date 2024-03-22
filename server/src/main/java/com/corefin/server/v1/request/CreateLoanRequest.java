@@ -27,5 +27,7 @@ public record CreateLoanRequest(
         @NotNull
         String region,
         @NotNull
-        String state
+        String state,
+
+        McaConfiguration mcaConfiguration
 ) {}
