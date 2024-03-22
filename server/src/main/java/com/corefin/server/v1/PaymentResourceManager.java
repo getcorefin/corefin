@@ -61,10 +61,10 @@ public class PaymentResourceManager {
             throw new CorefinException("No unpaid installments");
         }
         LoanInstallmentDto firstUnpaidInstallment = firstUnpaidInstallmentOptional.get();
-        validateMakePaymentRequestDate(makePaymentRequest, firstUnpaidInstallment);
+//        validateMakePaymentRequestDate(makePaymentRequest, firstUnpaidInstallment);
         BigDecimal installmentAmount = firstUnpaidInstallment.interestAmount()
                 .add(firstUnpaidInstallment.principalAmount());
-        validateMakePaymentRequestAmount(installmentAmount, makePaymentRequest.amount());
+//        validateMakePaymentRequestAmount(installmentAmount, makePaymentRequest.amount());
         String paymentId = UUID.randomUUID().toString();
         PaymentDto paymentDto = new PaymentDto(
                 paymentId,

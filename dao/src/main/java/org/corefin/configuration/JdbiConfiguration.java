@@ -4,6 +4,7 @@ package org.corefin.configuration;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.corefin.dao.LoanDao;
 import org.corefin.dao.LoanInstallmentDao;
+import org.corefin.dao.McaDao;
 import org.corefin.dao.PaymentDao;
 import org.jdbi.v3.core.Jdbi;
 import org.springframework.beans.factory.annotation.Value;
@@ -52,5 +53,9 @@ public class JdbiConfiguration {
     @Bean
     public PaymentDao paymentDao(Jdbi db) {
         return new PaymentDao(db);
+    }
+    @Bean
+    public McaDao mcaDao(Jdbi db) {
+        return new McaDao(db);
     }
 }

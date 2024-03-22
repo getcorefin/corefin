@@ -7,7 +7,7 @@ current_datetime=$(date "+%Y%m%d%H%M%S" | cut -b1-17)
 read -p "Enter a name for the migration: " name
 
 # Generate the filename by concatenating the name and the current datetime
-filename="${current_datetime}__${name}.sql"
+filename="V1__${current_datetime}__${name}.sql"
 
 migration_root_dir="migrations"
 touch "${migration_root_dir}/${filename}"
